@@ -73,6 +73,7 @@ Oblivion is a decentralized machine learning platform that enables:
 - Worker statistics dashboard
 - Automatic stale job recovery
 - On-chain settlement and rewards
+- **🤖 AI Assistant** (Optional): Mastra-powered job creation helper
 
 ## 📁 Project Structure
 
@@ -143,6 +144,17 @@ BC/
 ├── sample_job/                  # Example Training Data
 │   ├── dataset.csv              # Sample dataset
 │   └── training_script.py       # Example training job
+│
+├── mastra-agents/               # AI Assistant (Optional)
+│   ├── src/mastra/
+│   │   ├── index.ts             # Mastra configuration
+│   │   ├── agents/              # Job assistant agent
+│   │   └── tools/               # OBLIVION API tools
+│   ├── package.json
+│   ├── tsconfig.json
+│   ├── .env.example
+│   ├── README.md
+│   └── QUICK_START.md
 │
 ├── vercel.json                  # Vercel deployment config
 ├── DEPLOYMENT.md                # Original deployment guide

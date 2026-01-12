@@ -1,0 +1,30 @@
+{
+    "name": "oblivion-mastra-agents",
+    "version": "1.0.0",
+    "description": "AI Assistant agents for OBLIVION distributed ML platform",
+    "main": "src/mastra/index.ts",
+    "type": "module",
+    "scripts": {
+        "dev": "tsx src/mastra/index.ts",
+        "build": "tsc",
+        "start": "node dist/mastra/index.js"
+    },
+    "keywords": [
+        "mastra",
+        "ai",
+        "agents",
+        "oblivion",
+        "ml"
+    ],
+    "author": "OBLIVION Team",
+    "license": "MIT",
+    "dependencies": {
+        "@mastra/core": "^0.1.0",
+        "zod": "^3.22.4"
+    },
+    "devDependencies": {
+        "@types/node": "^20.0.0",
+        "tsx": "^4.7.0",
+        "typescript": "^5.3.0"
+    }
+}
