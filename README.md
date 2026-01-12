@@ -78,41 +78,80 @@ Oblivion is a decentralized machine learning platform that enables:
 
 ```
 BC/
-├── web/                    # Next.js 14 Frontend
+├── web/                         # Next.js 14 Frontend
 │   ├── app/
-│   │   ├── components/     # React components
-│   │   ├── lib/           # Supabase client, browser worker
-│   │   └── page.tsx       # Main application
-│   └── public/
+│   │   ├── components/          # React components
+│   │   │   ├── JobCard.tsx
+│   │   │   ├── NetworkTopology.tsx
+│   │   │   ├── WorkerStats.tsx
+│   │   │   └── ModelDownload.tsx
+│   │   ├── lib/                 # Supabase client, browser worker
+│   │   │   ├── supabase.ts
+│   │   │   ├── browserWorker.ts
+│   │   │   └── contracts.ts
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx             # Main application
+│   ├── public/
+│   ├── .env.example             # Environment variables template
+│   ├── package.json
+│   ├── tsconfig.json
+│   └── next.config.mjs
 │
-├── node-client/           # Python Worker Node
-│   ├── sharded_worker.py  # Main worker script
-│   ├── aggregator.py      # Gradient aggregation
-│   └── requirements.txt
+├── node-client/                 # Python Worker Node
+│   ├── sharded_worker.py        # Main worker script
+│   ├── aggregator.py            # Gradient aggregation
+│   ├── main.py                  # Alternative worker entry
+│   ├── test_oblivion_flow.py    # Integration tests
+│   ├── requirements.txt         # Python dependencies
+│   ├── .env.example             # Worker environment template
+│   ├── railway.json             # Railway deployment config
+│   ├── .python-version          # Python version specification
+│   └── Procfile                 # Render deployment config
 │
-├── contracts/             # Solidity Smart Contracts
+├── contracts/                   # Solidity Smart Contracts
 │   ├── src/
-│   │   ├── VouchManager.sol
-│   │   └── MockVerifier.sol
-│   └── deploy_contracts.py
+│   │   ├── VouchManager.sol     # Main contract
+│   │   ├── MockVerifier.sol     # EZKL verifier mock
+│   │   └── .env                 # Contract deployment keys
+│   ├── deploy_contracts.py      # Deployment script
+│   ├── check_contract.py        # Contract verification
+│   ├── check_balance.py         # Wallet balance checker
+│   ├── check_gas.py             # Gas estimation
+│   ├── diagnose_tx.py           # Transaction debugger
+│   └── deployed_addresses.json  # Deployed contract addresses
 │
-├── database/              # SQL Schemas
-│   ├── schema.sql
-│   ├── fair_job_distribution.sql
-│   └── create_claim_job.sql
+├── database/                    # SQL Schemas & Functions
+│   ├── schema.sql               # Main database schema
+│   ├── fair_job_distribution.sql # Job claiming logic
+│   ├── create_claim_job.sql     # Claim job function
+│   └── update_nodes_policy.sql  # RLS policies
 │
-├── model/                 # ML Model & EZKL Proofs
-│   ├── train.py
-│   ├── network.onnx
-│   └── compile_circuit.py
+├── model/                       # ML Model & EZKL Proofs
+│   ├── train.py                 # Model training script
+│   ├── network.onnx             # Exported ONNX model
+│   ├── compile_circuit.py       # EZKL circuit compilation
+│   ├── test_ezkl.py             # EZKL integration tests
+│   ├── input.json               # Sample input data
+│   ├── settings.json            # EZKL settings
+│   ├── witness_test.json        # Test witness
+│   └── requirements.txt         # ML dependencies
 │
-├── visualizer_app/        # Streamlit Dashboard
-│   └── app.py
+├── visualizer_app/              # Streamlit Dashboard
+│   └── app.py                   # Network visualization
 │
-└── sample_job/           # Example Training Data
-    ├── dataset.csv
-    └── training_script.py
+├── sample_job/                  # Example Training Data
+│   ├── dataset.csv              # Sample dataset
+│   └── training_script.py       # Example training job
+│
+├── vercel.json                  # Vercel deployment config
+├── DEPLOYMENT.md                # Original deployment guide
+├── DEPLOYMENT_QUICK_START.md    # Quick deployment reference
+├── WORKER_DISTRIBUTION.md       # Worker architecture docs
+├── README.md                    # This file
+└── .gitignore                   # Git ignore rules
 ```
+
 
 ## 🛠️ Setup
 
